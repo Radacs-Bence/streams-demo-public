@@ -42,9 +42,14 @@ class OrderServiceTest {
     }
 
     @Test
-    public void testCountOrderByStatus(){
+    void countOrderByStatusTest(){
         Long count = ordersService.countOrderByStatus("pending");
         assertEquals(2 , count);
+    }
+    @Test
+    void collectOrdersWithProductCategoryTest(){
+        int result = ordersService.collectOrdersWithProductCategory("Book").size();
+        assertEquals(1 , result);
     }
 
 

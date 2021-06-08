@@ -17,4 +17,11 @@ public class OrderService {
          return orders.stream().filter(order -> status.equals(order.getStatus())).count();
     }
 
+    public List<Order> collectOrdersWithProductCategory(String category){
+        return orders.stream()
+                .filter(order -> order.getProducts().stream()
+                        .anyMatch(product -> category.equals(product.getCategory())))
+                .collect(Collectors.toList());
+    }
+
 }
