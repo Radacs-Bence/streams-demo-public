@@ -1,6 +1,7 @@
 package streams;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
@@ -31,9 +32,19 @@ class OrderServiceTest {
         o2.addProduct(p1);
         o2.addProduct(p2);
 
+        Order o3 = new Order("pending", LocalDate.of(2021,06,07));
+
+
         ordersService.saveOrder(o1);
         ordersService.saveOrder(o2);
+        ordersService.saveOrder(o3);
 
+    }
+
+    @Test
+    public void testCountOrderByStatus(){
+        Long count = ordersService.countOrderByStatus("pending");
+        assertEquals(2 , count);
     }
 
 

@@ -13,4 +13,8 @@ public class OrderService {
         orders.add(order);
     }
 
+    public long countOrderByStatus(String status){
+         return orders.stream().filter(order -> status.equals(order.getStatus())).count();
+    }
+
 }
