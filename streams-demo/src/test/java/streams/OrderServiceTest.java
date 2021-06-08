@@ -53,4 +53,9 @@ class OrderServiceTest {
     }
 
 
+    @Test
+    void productsOverAmountPrice() {
+        int result = ordersService.productsOverAmountPrice(1999).size();
+        assertEquals(2 , result);
+    }
 }
